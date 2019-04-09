@@ -94,4 +94,13 @@ describe('bus route', () => {
     expect(number22.passengerCount()).toBe(1);
   });
 
+  test('all people should be able to get on the bus from the bus stop queue', () => {
+    castleTerrace.joinQueue(ben);
+    castleTerrace.joinQueue(pawel);
+    castleTerrace.joinQueue(hamish);
+    number22.pickUpAllFromStop(castleTerrace);
+    expect(castleTerrace.queue.length).toBe(0);
+    expect(number22.passengerCount()).toBe(3);
+  });
+
 });
